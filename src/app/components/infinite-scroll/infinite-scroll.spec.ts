@@ -1,18 +1,18 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
 
-import { TodoItemComponent } from './todo-item-component';
+import { InfiniteScroll } from './infinite-scroll';
 
-describe('TodoItemComponent', () => {
-  let component: TodoItemComponent;
-  let fixture: ComponentFixture<TodoItemComponent>;
+describe('InfiniteScroll', () => {
+  let component: InfiniteScroll;
+  let fixture: ComponentFixture<InfiniteScroll>;
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      imports: [TodoItemComponent]
+      imports: [InfiniteScroll]
     })
     .compileComponents();
 
-    fixture = TestBed.createComponent(TodoItemComponent);
+    fixture = TestBed.createComponent(InfiniteScroll);
     component = fixture.componentInstance;
     fixture.detectChanges();
   });
