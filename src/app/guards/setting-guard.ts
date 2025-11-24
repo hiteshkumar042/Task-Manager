@@ -9,7 +9,7 @@ export const settingGuard: CanActivateFn = () => {
     return true;
   }
   else {
-    alert("No Permisiion")
+    alert("No Permission \nPlease Turn on the setting...")
     return false;
   }
 };
