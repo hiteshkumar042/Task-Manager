@@ -1,9 +1,12 @@
-<div class="add-task">
-    <form [formGroup]="form" (ngSubmit)="submitForm()">
-
-        <input type="text" formControlName="newTitle" placeholder="Task title" />
-        <input type="text" formControlName="newDescription" placeholder="Task description" />
-
-        <button type="submit">Add Task</button>
+<div class="w-full flex mt-4 justify-center">
+    <form class="gap-3 flex" [formGroup]="form" (ngSubmit)="submitForm()">
+        <input
+            class="border border-gray-300 rounded-lg px-3 py-2 text-grey-900 focus:outline-none focus:border-blue-500"
+            type="text" formControlName="newTitle" placeholder="Task title" />
+        <input
+            class="border border-gray-300 rounded-lg px-3 py-2 text-grey-900 focus:outline-none focus:border-blue-500"
+            type="text" formControlName="newDescription" placeholder="Task description" />
+        <button class="bg-green-400 px-3 py-2 rounded hover:cursor-pointer hover:bg-green-500" type="submit">Add
+            Task</button>
     </form>
 </div>

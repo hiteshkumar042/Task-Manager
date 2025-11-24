@@ -1,6 +1,9 @@
-<div class="add-task">
-    <input type="text" [(ngModel)]="title" placeholder="Task title" />
-    <input type="text" [(ngModel)]="description" placeholder="Task description" />
+<div class=" w-full flex mt-4 gap-3 justify-center">
+    <input class=" border border-gray-300 rounded-lg px-3 py-2 text-grey-900 focus:outline-none focus:border-blue-500"
+        type="text" [(ngModel)]="title" placeholder="Task title" />
+    <input class="border border-gray-300 rounded-lg px-3 py-2 text-grey-900 focus:outline-none focus:border-blue-500"
+        type="text" [(ngModel)]="description" placeholder="Task description" />
 
-    <button (click)="updateRecord()">Update Task</button>
+    <button class="bg-green-400 px-3 py-2 rounded hover:cursor-pointer hover:bg-green-500"
+        (click)="updateRecord()">UpdateTask</button>
 </div>

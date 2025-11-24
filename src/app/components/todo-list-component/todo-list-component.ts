@@ -2,11 +2,12 @@ import { Component, inject } from '@angular/core';
 import { ToDo, TodoService } from '../../services/todoservice/todo-service';
 import { Router } from '@angular/router';
 import { AuthService } from '../../services/authservice/authservice';
+import { CommonModule } from '@angular/common';
 
 
 @Component({
   selector: 'app-todo-list-component',
-  imports: [],
+  imports: [CommonModule],
   templateUrl: './todo-list-component.html',
   styleUrl: './todo-list-component.scss',
 })

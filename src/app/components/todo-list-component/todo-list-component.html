@@ -1,21 +1,42 @@
-<div style="display: flex; justify-content: center; gap:20px">
-    <button (click)="routetoAdd()">Add Task</button>
-    <button (click)="auth.toggleSetting()">Setting - {{auth.settingsEnabled?"On":"Off"}}</button>
-    <button (click)="gotoSetting()">Go to Setting</button>
-
+<div class="flex gap-3 justify-center mt-4 mb-4">
+    <button class="bg-sky-400 rounded px-2 py-2 hover:cursor-pointer hover:bg-sky-500" (click)="routetoAdd()">Add
+        Task</button>
+    <button class="bg-sky-400 rounded px-2 py-2 hover:cursor-pointer hover:bg-sky-500"
+        (click)="auth.toggleSetting()">Setting -
+        {{auth.settingsEnabled?"On":"Off"}}</button>
+    <button class="bg-sky-400 rounded px-2 py-2 hover:cursor-pointer hover:bg-sky-500" (click)="gotoSetting()">Go to
+        Setting</button>
 </div>
 
+<table *ngIf="tasks.length" class="w-full border-grey-200 rounded-lg border">
+    <thead class="bg-gray-200 text-left text-grey-700">
+        <tr>
+            <th class="py-3 px-4">Task Name</th>
+            <th class="py-3 px-4">Description</th>
+            <th class="py-3 px-4">Action</th>
+        </tr>
+    </thead>
+    <tbody>
+        @for (task of tasks; track task.id;let i = $index) {
+        <tr [ngClass]="{'bg-gray-100':i%2!=0}" class="text-left">
+            <td class="py-2 px-4">{{ task.title }}</td>
+            <td class="py-2 px-4">{{ task.description }}</td>
+            <td class="py-2 px-4">
+                <button class="bg-sky-400 px-2 py-1 rounded mr-2 hover:cursor-pointer hover:bg-sky-500"
+                    (click)="edittask(task.id)">Edit</button>
+                <button class="bg-red-400 px-2 py-1 rounded hover:cursor-pointer hover:bg-red-500"
+                    (click)="removeTask(task.id)">Remove</button>
+            </td>
+        </tr>
+        }
+    </tbody>
+</table>
 
-<ul>
-    @for (task of tasks; track task.id) {
-    <li>
-        <h3>{{ task.title }}</h3>
-        <p>{{ task.description }}</p>
-        <button (click)="edittask(task.id)">Edit</button>
-        <button (click)="removeTask(task.id)">Remove</button>
-    </li>
-    }
-    @empty {
-    <h2>No task Availabel</h2>
-    }
-</ul>
+<div *ngIf="!tasks.length">
+    <div class="w-full mt-8 flex items-center text-center justify-center">
+        <div class="rounded-lg bg-sky-100 px-4 py-8 text-lg">
+            No Task Available...<br>
+            Click on Add Button to add task
+        </div>
+    </div>
+</div>

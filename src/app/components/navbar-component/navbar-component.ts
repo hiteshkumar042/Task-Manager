@@ -1,9 +1,10 @@
+import { CommonModule } from '@angular/common';
 import { ChangeDetectionStrategy, ChangeDetectorRef, Component, inject } from '@angular/core';
 
 @Component({
   selector: 'app-navbar-component',
   changeDetection: ChangeDetectionStrategy.OnPush,
-  imports: [],
+  imports: [CommonModule],
   templateUrl: './navbar-component.html',
   styleUrl: './navbar-component.scss',
 })
@@ -17,6 +18,10 @@ export class NavbarComponent {
       this.title = "Task Manager App";
       this.cdr.markForCheck()
     }, 2000);
+  }
 
+  isMenuOpen = false;
+  toggleMenu() {
+    this.isMenuOpen = !this.isMenuOpen;
   }
 }
