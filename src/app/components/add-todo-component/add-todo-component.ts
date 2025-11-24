@@ -38,6 +38,7 @@ export class AddTodoComponent {
         description: data.newDescription
       }
       this.todos.addTodo(postObj);
+      this.todos.openSnackBar("Task Added")
       this.router.navigate(['/'])
 
     }
@@ -55,6 +56,7 @@ export class AddTodoComponent {
     }
 
     this.todos.addTodo(postObj);
+    this.todos.openSnackBar("Task Added")
     this.router.navigate(['/'])
 
   }

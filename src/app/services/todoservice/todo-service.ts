@@ -1,4 +1,5 @@
-import { Injectable } from '@angular/core';
+import { inject, Injectable } from '@angular/core';
+import { MatSnackBar } from '@angular/material/snack-bar';
 
 
 export interface ToDo {
@@ -11,7 +12,7 @@ export interface ToDo {
   providedIn: 'root',
 })
 export class TodoService {
-
+  private _snackBar = inject(MatSnackBar);
 
   private toDos: ToDo[] = [
 
@@ -52,5 +53,9 @@ export class TodoService {
     let todos = this.getTodos();
     todos = todos.filter((t: any) => t.id !== id);
     this.saveTodos(todos);
+  }
+
+  openSnackBar(message: string, action: string = "") {
+    this._snackBar.open(message, action, { duration: 1000, },);
   }
 }

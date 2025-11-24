@@ -38,6 +38,7 @@ export class EditTodoComponent {
     }
 
     this.todos.updateTodo(this.id, postObj);
+    this.todos.openSnackBar("Task Updated")
     this.router.navigate(['/'])
   }
 }

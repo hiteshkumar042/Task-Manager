@@ -4,7 +4,6 @@ import { Router } from '@angular/router';
 import { AuthService } from '../../services/authservice/authservice';
 import { CommonModule } from '@angular/common';
 
-
 @Component({
   selector: 'app-todo-list-component',
   imports: [CommonModule],
@@ -15,17 +14,17 @@ export class TodoListComponent {
 
   private todos = inject(TodoService);
   private router = inject(Router);
-  public auth = inject(AuthService)
+  public auth = inject(AuthService);
 
   tasks: ToDo[] = [];
   ngOnInit() {
     this.tasks = this.todos.getTodos()
   }
 
-
   removeTask(id: number) {
     this.todos.deleteTodo(id);
     this.tasks = this.todos.getTodos();
+    this.todos.openSnackBar("Task Removed")
   }
 
 
