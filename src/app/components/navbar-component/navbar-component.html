@@ -1,4 +1,4 @@
-<nav class=" shadow-sm px-5 py-3 flex items-center bg-sky-400 justify-between">
+<nav class=" shadow-sm px-5 py-6 flex items-center bg-sky-400 justify-between">
     <!-- Logo -->
     <div class="text-2xl font-bold tracking-wide">
         Task Manager
@@ -6,10 +6,8 @@
 
     <!-- Desktop Menu -->
     <ul class="hidden md:flex gap-8 text-gray-700 font-medium">
-        <li><a class="hover:text-white transition" href="#">Dashboard</a></li>
-        <li><a class="hover:text-white transition" href="#">Employees</a></li>
-        <li><a class="hover:text-white transition" href="#">Departments</a></li>
-        <li><a class="hover:text-white transition" routerLink="infscroll">Infinite</a></li>
+        <li><a class="hover:text-white transition" routerLink="/">Dashboard</a></li>
+        <li><a class="hover:text-white transition" routerLink="infscroll">Animate Scroll</a></li>
     </ul>
 
     <!-- Mobile Button -->
@@ -20,8 +18,6 @@
 
 <!-- Mobile Dropdown -->
 <div class="md:hidden bg-sky-300 shadow-lg  overflow-hidden transition-all" [ngClass]="{ 'hidden': !isMenuOpen }">
-    <a href="#" class="block px-5 py-3 hover:text-white">Dashboard</a>
-    <a href="#" class="block px-5 py-3 hover:text-white">Employees</a>
-    <a href="#" class="block px-5 py-3 hover:text-white">Departments</a>
-    <a routerLink="infscroll" class="block px-5 py-3 hover:text-white">Infinite</a>
+    <a routerLink="/" class="block px-5 py-3 hover:text-white" (click)="closeMenu()">Dashboard</a>
+    <a routerLink="infscroll" class="block px-5 py-3 hover:text-white" (click)="closeMenu()">Animate Scroll</a>
 </div>
