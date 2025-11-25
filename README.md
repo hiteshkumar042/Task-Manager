@@ -1,59 +1,78 @@
-# Todoapp
+# Task Manager
 
-This project was generated using [Angular CLI](https://github.com/angular/angular-cli) version 20.3.7.
 
-## Development server
+## Angular Web App → Android APK (Capacitor)
+Prerequisites
 
-To start a local development server, run:
+Node.js
 
-```bash
-ng serve
-```
+Angular CLI
 
-Once the server is running, open your browser and navigate to `http://localhost:4200/`. The application will automatically reload whenever you modify any of the source files.
+Android Studio with Android SDK
 
-## Code scaffolding
+Capacitor CLI (npm install @capacitor/cli @capacitor/core)
 
-Angular CLI includes powerful code scaffolding tools. To generate a new component, run:
+Java JDK 17
 
-```bash
-ng generate component component-name
-```
+1. Initialize Capacitor
+cd <angular-project>
+npx cap init
 
-For a complete list of available schematics (such as `components`, `directives`, or `pipes`), run:
 
-```bash
-ng generate --help
-```
+capacitor.config.json
 
-## Building
+{
+  "appId": "com.example.todoapp",
+  "appName": "TodoApp",
+  "webDir": "dist/todoapp/browser"
+}
 
-To build the project run:
+2. Build Angular App
+ng build --configuration production
 
-```bash
-ng build
-```
 
-This will compile your project and store the build artifacts in the `dist/` directory. By default, the production build optimizes your application for performance and speed.
+Output: dist/<project-name>/browser
 
-## Running unit tests
+Verify index.html exists.
 
-To execute unit tests with the [Karma](https://karma-runner.github.io) test runner, use the following command:
+3. Add Android Platform
+npx cap add android
 
-```bash
-ng test
-```
 
-## Running end-to-end tests
+Creates android/ folder.
 
-For end-to-end (e2e) testing, run:
+4. Copy Angular Build to Android
+npx cap copy
 
-```bash
-ng e2e
-```
 
-Angular CLI does not come with an end-to-end testing framework by default. You can choose one that suits your needs.
+Copies files to android/app/src/main/assets/public/.
 
-## Additional Resources
+5. Configure Android SDK
 
-For more information on using the Angular CLI, including detailed command references, visit the [Angular CLI Overview and Command Reference](https://angular.dev/tools/cli) page.
+Create or edit android/local.properties:
+
+sdk.dir=C:\\Users\\<username>\\AppData\\Local\\Android\\Sdk
+
+6. Build APK
+cd android
+.\gradlew.bat assembleDebug
+
+
+APK location: android/app/build/outputs/apk/debug/app-debug.apk
+
+7. Add Custom App Icon
+
+Prepare a 1024×1024 PNG icon.
+
+Use Android Asset Studio
+ → Launcher Icon → Adaptive → Download ZIP.
+
+Replace files in android/app/src/main/res/:
+
+ic_launcher.png
+ic_launcher_round.png
+ic_launcher_foreground.png
+ic_launcher_background.png
+
+
+Rebuild APK.
